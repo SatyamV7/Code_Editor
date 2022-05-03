@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SatyamV7 Code</title>
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="js/codemirror/codemirror.css" rel="stylesheet" />
+    <link href="js/codemirror/theme/bright.css" rel="stylesheet" />
+    <link href="js/codemirror/theme/dark.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="manifest.json" rel="manifest">
+    <script src="js/codemirror/codemirror.js"></script>
+    <script src="js/codemirror/xml.js"></script>
+    <script src="js/codemirror/javascript.js"></script>
+    <script src="js/codemirror/css.js"></script>
+    <script src="js/codemirror/htmlmixed.js"></script>
+    <script src="js/codemirror/foldcode.js"></script>
+    <script src="js/SatyamV7_Code.js"></script>
+    <script src="js/jslint.min.js"></script>
+    <script src="js/template.js"></script>
+    <script type="text/javascript">
+        window.addEventListener("DOMContentLoaded", function () {
+            window.liveEditor = new HTMLiveCode();
+            window.liveEditor.init();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="menu-bar">
+        <div id="menu-column-1">
+            <div class="menu-button-first dropdown-button" id="btn-dropdown-settings">
+                <span>Settings</span>
+                <div class="dropdown" id="dropdown-settings">
+                    <div class="menu-label">Theme</div>
+                    <div class="menu-button-active" id="btn-style-bright">Bright</div>
+                    <div class="menu-button" id="btn-style-dark">Dark</div>
+                    <div class="dropdown-separator"></div>
+                    <div class="menu-label">Font size</div>
+                    <div class="menu-button" id="btn-fontsize-increase">A+</div>
+                    <div class="menu-button" id="btn-fontsize-decrease">A-</div>
+                    <div class="menu-button" id="btn-fontsize-reset">A<sup>&oslash;</sup></div>
+                    <div class="dropdown-separator"></div>
+                    <div class="menu-label">Options</div>
+                    <div class="menu-button-active" id="btn-options-gutter">Gutter</div>
+                    <div class="menu-button-active" id="btn-options-wordwrap">Word wrap</div>
+                    <div class="dropdown-separator"></div>
+                    <div class="menu-label">Shortcuts</div>
+                    <p class="labeltext">
+                        <span class="shortcut">ALT + M</span><span>Toggle menu bar</span>
+                        <span class="shortcut">ALT + T</span><span>Toggle theme</span>
+                        <span class="shortcut">ALT + I</span><span>Increase font size</span>
+                        <span class="shortcut">ALT + O</span><span>Decrease font size</span>
+                        <span class="shortcut">ALT + 0</span><span>Reset font size</span>
+                        <span class="shortcut">ALT + G</span><span>Toggle gutter</span>
+                        <span class="shortcut last">ALT + W</span><span class="last">Toggle word wrap</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-separator"></div>
+            <div class="menu-label" id="label-imagepath">Image proxy path</div>
+            <input class="menu-input" id="txt-imagepath" value=""
+                title="ONLY WORKS WHEN SatyamV7 IS USED LOCALLY: Use this path to point to local image files (works for 'src' attribute of images and CSS 'background-image' urls). Don't use quotes here." />
+        </div>
+        <div id="menu-column-2">
+            <div class="menu-separator"></div>
+            <div class="menu-label">Reset</div>
+            <div class="menu-button" id="btn-reset-code">Code</div>
+            <div class="menu-button" id="btn-reset-settings">Settings</div>
+            <div class="menu-separator"></div>
+        </div>
+        <div class="menu-separator"></div>
+        <div class="menu-button-single dropdown-button" id="btn-dropdown-info">
+            <span>?</span>
+            <div class="dropdown" id="dropdown-info">
+                <p><strong>SatyamV7</strong> is a real-time HTML/CSS/JavaScript code editor which is made for rapid
+                    prototyping.</p>
+                <p>Click on the gutter to fold a tag range in and out.</p>
+                <p>The editor makes use of HTML5's localStorage and has been optimized for modern browsers. Internet
+                    Explorer is supported from version 9 on.</p>
+            </div>
+        </div>
+    </div>
+    <div id="logo"></div>
+    </div>
+    <div id="imagepath-tooltip" class="tooltip">
+        <div id="imagepath-tooltip-arrow" class="tooltip-arrow"></div>
+        <p>ONLY WORKS WHEN SatyamV7 IS USED LOCALLY: Use this path to point to local image files (works for "src"
+            attribute of images and CSS "background-image" urls). Don't use quotes here.</p>
+        <p>For example if you enter "C:/Path/" and you set an "src" attribute to "button.png", SatyamV7 will virtually
+            change the "src" attribute to "file:///C:/Path/button.png".</p>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/serviceworker.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
